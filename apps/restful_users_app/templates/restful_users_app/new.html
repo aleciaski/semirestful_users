@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add a New User</title>
+</head>
+<body>
+	<div class="container">
+            {% if messages %}
+                <ul class="messages">
+                {% for message in messages %}
+                    <li {% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message }}
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+	<form action='/restful_users_app/create' method="POST">
+		{% csrf_token %}
+		<h1>Add a new user</h1>
+		<p>First Name:</p><input type="text" name="first_name" id="first_name">
+		<p>Last Name:</p><input type="text" name="last_name" id="last_name">
+		<p>Email:</p><input type="text" name="email" id="email"><br>
+		<br>
+		<input type="submit" name="Create!"><br>
+		<br>
+		<a href="/">Go back</a>
+	</form>
+</body>
+</html>

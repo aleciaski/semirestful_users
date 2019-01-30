@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit User {{user.id}}</title>
+	{% load static %}
+</head>
+<body>
+	<form action='/users/{{user.id}}/update' method="POST">
+		{% csrf_token %}
+		<h1>Edit user {{user.id}}:</h1>
+		<p>First Name:</p><input type="text" name="first_name" value="{{user.first_name}}">
+		<p>Last Name:</p><input type="text" name="last_name" value="{{user.last_name}}">
+		<p>Email:</p><input type="text" name="email" value="{{user.email}}"><br>
+		<br>
+		<input type="submit" name="Update!" id="update"><br>
+		<br>
+		<a href="/users/{{user.id}}">Show</a>
+		<a href="/users">Go back</a>
+		</form>
+</body>
+</html>

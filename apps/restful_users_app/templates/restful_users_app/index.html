@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Semi-restful Users</title>
+</head>
+
+<body>
+    <form action='/create' method="POST">
+        <h1>Users</h1>
+        <table>
+            <tr>
+                <th class="col1">Id</th>
+                <th class="col2">Full Name</th>
+                <th class="col3">Email</th>
+                <th class="col4">Created at</th>
+                <th class="col5">Actions</th>
+            </tr>
+            {% for user in users %}
+            <tr>
+                <td class="col1">{{user.id}}</td>
+                <td class="col2"><a href="#">{{user.first_name}}{{user.last_name}}</a></td>
+                <td class="col3">{{user.email}}</td>
+                <td class="col4">{{user.created_at}}</td>
+                <td class="col5">
+                    <a href="/users/{{user.id}}">Show</a>
+                    <a href="/users/{{user.id}}/edit">Edit</a>
+                    <a href="/users/{{user.id}}/destroy">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </form>
+    <a href="/new">Add a user</a>
+</body>
+
+</html>
